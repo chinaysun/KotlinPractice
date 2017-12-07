@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.suny.hellokotlin.MainActivity">
+
+    <Button
+        android:id="@+id/showNameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/button_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/enteryourname"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/textview_name"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resultLabel"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showNameButton" />
+
+    <CheckBox
+        android:id="@+id/checkFruit"
+        android:layout_width="125dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onCheckBoxClicked"
+        android:text="Fruits"
+        app:layout_constraintStart_toStartOf="@+id/checkVeg"
+        app:layout_constraintTop_toBottomOf="@+id/checkVeg" />
+
+    <CheckBox
+        android:id="@+id/checkVeg"
+        android:layout_width="125dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="10dp"
+        android:text="Veg"
+        android:onClick="onCheckBoxClicked"
+        app:layout_constraintStart_toStartOf="@+id/checkMeat"
+        app:layout_constraintTop_toBottomOf="@+id/checkMeat" />
+
+    <CheckBox
+        android:id="@+id/checkMeat"
+        android:layout_width="125dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:text="Meat"
+        android:onClick="onCheckBoxClicked"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="268dp" />
+</android.support.constraint.ConstraintLayout>
