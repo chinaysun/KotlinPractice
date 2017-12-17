@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +22,13 @@ class MainActivity : AppCompatActivity() {
 
         // custom adapter telling my list what to display
         listView.adapter = MyCustomAdapter(this)
+
+        listView.setOnItemClickListener { parent, view, position, id ->
+
+            var itemName: String = listView.getItemAtPosition(position) as String
+            Toast.makeText(this,"ID: $id, Name: + $itemName",Toast.LENGTH_LONG).show()
+
+        }
     }
 
     private class MyCustomAdapter(context: Context): BaseAdapter() {
@@ -43,8 +51,8 @@ class MainActivity : AppCompatActivity() {
             return position.toLong()
         }
 
-        override fun getItem(position: Int): Any {
-            return "TEST STRING"
+        override fun getItem(position: Int): String {
+            return names.get(position)
         }
 
         // responsible for rendering out each row
