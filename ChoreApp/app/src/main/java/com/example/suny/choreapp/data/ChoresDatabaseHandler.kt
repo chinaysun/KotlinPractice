@@ -91,6 +91,7 @@ class ChoresDatabaseHandler(context: Context) :
 
             do {
                 var chore = Chore()
+                chore.id = cursor.getInt(cursor.getColumnIndex(KEY_ID))
                 chore.choreName = cursor.getString(cursor.getColumnIndex(KEY_CHORE_NAME))
                 chore.assignedTo = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TO))
                 chore.assignedBy = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_BY))

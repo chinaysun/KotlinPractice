@@ -4,76 +4,83 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
-        android:padding="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/listChoreName"
-                android:textStyle="bold"
-                android:textSize="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/imageViewID"
                 android:layout_marginLeft="5dp"
-                android:text="Chore Name" />
+                android:layout_toRightOf="@+id/imageViewID"
+                android:text="Chore Name"
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/listAssignedBy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/listChoreName"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/imageViewID"
-                android:layout_below="@id/listChoreName"
                 android:text="Assigned By" />
 
             <TextView
                 android:id="@+id/listAssignedTo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/listAssignedBy"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/imageViewID"
-                android:layout_below="@id/listAssignedBy"
                 android:text="Assigned To" />
 
             <TextView
                 android:id="@+id/listDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignBottom="@id/imageViewID"
+                android:layout_alignParentRight="true"
                 android:text="date: 12 April 2017" />
 
             <Button
                 android:id="@+id/listEditButton"
-                android:layout_toLeftOf="@id/listDeleteButton"
-                android:layout_alignBottom="@id/listChoreName"
-                android:background="@android:drawable/ic_menu_edit"
                 android:layout_width="25dp"
-                android:layout_height="25dp" />
+                android:layout_height="25dp"
+                android:layout_alignBottom="@id/listChoreName"
+                android:layout_toLeftOf="@id/listDeleteButton"
+                android:background="@android:drawable/ic_menu_edit" />
 
             <Button
                 android:id="@+id/listDeleteButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@id/listChoreName"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="5dp"
-                android:layout_alignBottom="@id/listChoreName"
-                android:background="@android:drawable/ic_delete"
-                android:layout_width="25dp"
-                android:layout_height="25dp" />
+                android:background="@android:drawable/ic_delete" />
 
             <ImageView
-                android:contentDescription="@string/image_description"
                 android:id="@+id/imageViewID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/image_description"
                 app:srcCompat="@mipmap/ic_launcher_round" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
