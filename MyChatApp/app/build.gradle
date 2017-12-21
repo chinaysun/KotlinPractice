@@ -38,7 +38,12 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.4.+'
+    compile 'id.zelory:compressor:2.1.0'
+    implementation 'com.firebaseui:firebase-ui-database:2.2.0'
 }
+
+
 
 
 

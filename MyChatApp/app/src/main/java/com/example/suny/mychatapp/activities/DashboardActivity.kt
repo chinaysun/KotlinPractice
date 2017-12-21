@@ -30,10 +30,7 @@ class DashboardActivity : AppCompatActivity() {
         mainTab.setupWithViewPager(dashViewPagerId)
         mainTab.setTabTextColors(Color.WHITE,Color.GREEN)
 
-        if (intent.extras != null) {
-            var username = intent.extras.get("name")
-            supportActionBar!!.title = "Dashboard - Welcome " + username.toString()
-        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
