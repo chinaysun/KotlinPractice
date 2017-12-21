@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/messageImageViewLeft"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/profile_img"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <TextView
+                android:id="@+id/messageTextView"
+                android:layout_toRightOf="@id/messageImageViewLeft"
+                android:layout_below="@+id/nameOfMessagerTextView"
+                android:textSize="14.5sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="4dp"
+                android:text="Message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/nameOfMessagerTextView"
+                android:layout_toRightOf="@id/messageImageViewLeft"
+                android:padding="5dp"
+                android:textStyle="italic"
+                android:background="@drawable/rounded_corner2"
+                android:text="Name of Messager"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/messageImageViewRight"
+                android:layout_alignParentRight="true"
+                android:visibility="invisible"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/profile_img"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"/>
+
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
