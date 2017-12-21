@@ -74,8 +74,8 @@ class ChatActivity : AppCompatActivity() {
                         // show right side image
                         viewHolder.profileImageViewRight!!.visibility = View.VISIBLE
                         viewHolder.profileImageViewLeft!!.visibility = View.GONE
-                        viewHolder.messageTextView!!.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
-                        viewHolder.messagerTextView!!.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
+                        viewHolder.messageTextView!!.gravity = Gravity.RIGHT
+                        viewHolder.messagerTextView!!.gravity = Gravity.RIGHT
 
                         //Get imageUrl for me
                         mFirebaseDatabaseRef!!.child("Users")
@@ -107,8 +107,8 @@ class ChatActivity : AppCompatActivity() {
 
                         viewHolder.profileImageViewRight!!.visibility = View.GONE
                         viewHolder.profileImageViewLeft!!.visibility = View.VISIBLE
-                        viewHolder.messageTextView!!.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
-                        viewHolder.messagerTextView!!.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
+                        viewHolder.messageTextView!!.gravity = Gravity.LEFT
+                        viewHolder.messagerTextView!!.gravity = Gravity.LEFT
 
                         //Get imageUrl for me
                         mFirebaseDatabaseRef!!.child("Users")

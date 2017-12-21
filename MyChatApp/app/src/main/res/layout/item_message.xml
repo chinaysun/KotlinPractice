@@ -30,24 +30,25 @@
 
             <TextView
                 android:id="@+id/messageTextView"
-                android:layout_toRightOf="@id/messageImageViewLeft"
+                android:layout_toEndOf="@id/messageImageViewLeft"
+                android:layout_toStartOf="@id/messageImageViewRight"
                 android:layout_below="@+id/nameOfMessagerTextView"
                 android:textSize="14.5sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="4dp"
                 android:text="Message"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/nameOfMessagerTextView"
-                android:layout_toRightOf="@id/messageImageViewLeft"
                 android:padding="5dp"
                 android:textStyle="italic"
-                android:background="@drawable/rounded_corner2"
+                android:layout_toEndOf="@id/messageImageViewLeft"
+                android:layout_toStartOf="@id/messageImageViewRight"
                 android:text="Name of Messager"
                 android:textSize="12sp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <de.hdodenhof.circleimageview.CircleImageView
