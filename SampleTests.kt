@@ -53,6 +53,33 @@ fun main(args: Array<String>) {
     topLevelClass.print()
     DerivedClass(TopLevelClass("New Shawn")).print()
     
+    println("======================Lazy===================")
+    println(lazyValue)
+    println(lazyValue)
+    
+    println("======================Infix function===================")
+    println(userMoving.getCurrentLocation()) // (10,10)
+    userMoving move CompassDirection.North
+    println(userMoving.getCurrentLocation()) // (11,10)
+    
+    println("===============Operation Overloading===================")
+    var point = Point(10, 20)
+    point++
+    println(point) // Point(11,21)
+
+    
+}
+
+data class Point(var x: Int, var y: Int)
+
+operator fun Point.inc() = Point(x+1,y+1)
+
+
+val lazyValue:String by lazy(:: lazyValueLambda)
+
+fun lazyValueLambda():String {
+    println("Computed the lazy variable")
+    return "Hello wa"
 }
 
 interface Base {
@@ -62,7 +89,7 @@ interface Base {
 class TopLevelClass(val name:String) : Base {
     
     override fun print() {
-    	println("My name is $name")
+        println("My name is $name")
     }
 }
 
@@ -103,26 +130,26 @@ class UserMoving(val user:User) {
         return "$user locates in (${this.currentLocationX},${this.currentLocationY})"
     }
     
-    fun move(direction:CompassDirection) = when(direction) {
+    infix fun move(direction:CompassDirection) = when(direction) {
         CompassDirection.North -> {
-        	println("User move towards North --> X + 1 ")
-        	this.currentLocationX += 1
+            println("User move towards North --> X + 1 ")
+            this.currentLocationX += 1
         }
         CompassDirection.South -> {
-        	println("User move towards South --> X - 1 ")
-        	this.currentLocationX -= 1
+            println("User move towards South --> X - 1 ")
+            this.currentLocationX -= 1
         }
         CompassDirection.West -> {
-        	println("User move towards West --> Y - 1 ")
-        	this.currentLocationY -= 1
+            println("User move towards West --> Y - 1 ")
+            this.currentLocationY -= 1
         }
         CompassDirection.East -> {
-        	println("User move towards East --> Y + 1 ")
-        	this.currentLocationY += 1
+            println("User move towards East --> Y + 1 ")
+            this.currentLocationY += 1
         }
         is CompassDirection.JumpToLocation -> {
             println("User Jumped!!!")
-        	this.currentLocationY = direction.yVaule
+            this.currentLocationY = direction.yVaule
             this.currentLocationX = direction.xValue
         }
         
@@ -141,7 +168,7 @@ class MyText() {
     }
     
     var myVariable: Int = 1
-    	set(value){
+        set(value){
             if (field >= value) {
                 field = value 
             }
