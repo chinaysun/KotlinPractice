@@ -100,6 +100,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         dateTimeTextView.text = getCurrentTimeStamp()
         // register timer
+
         registerReceiver(tickReceiver, IntentFilter(Intent.ACTION_TIME_TICK))
     }
 

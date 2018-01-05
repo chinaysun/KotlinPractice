@@ -13,4 +13,24 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="create_new_task_button">Create a new task</string>
     <string name="general_tasks_button">Browse general tasks</string>
+    <string name="taskNameHint">Please input task name</string>
+    <string name="taskTypeHint">Please select one type</string>
+    <string name="taskTypeTextViewTitle">Task Type :</string>
+    <string name="taskStartTimeTittle">Starting Time :</string>
+    <string name="defaultEstimatedDate">9999-99-99</string>
+    <string name="defaultEstimateTime">99:99</string>
+    <string name="timeEditButton">Select</string>
+    <string name="taskDescriptionHint">Please describe your task</string>
+
+
+    <string-array name="task_type_array">
+        <item>Work</item>
+        <item>Hobbit</item>
+        <item>Entertainment</item>
+        <item>Housework</item>
+        <item>Study</item>
+        <item>Exercise</item>
+        <item>Anonymous</item>
+    </string-array>
+
 </resources>

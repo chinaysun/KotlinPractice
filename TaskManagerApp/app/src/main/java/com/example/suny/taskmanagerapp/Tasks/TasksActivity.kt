@@ -1,6 +1,5 @@
 package com.example.suny.taskmanagerapp.Tasks
 
-import android.app.FragmentManager
 import android.app.FragmentManager.OnBackStackChangedListener
 import android.os.Bundle
 import android.widget.PopupMenu
@@ -10,7 +9,10 @@ import com.example.suny.taskmanagerapp.Tasks.TasksFragments.CustomisedTasksFragm
 import com.example.suny.taskmanagerapp.Tasks.TasksFragments.GeneralTasksFragment
 import com.example.suny.taskmanagerapp.Tasks.TasksFragments.MyTasksFragment
 import com.jakewharton.rxbinding2.view.RxView
+import com.jakewharton.rxbinding2.widget.RxAdapter
+import com.jakewharton.rxbinding2.widget.RxAdapterView
 import com.jakewharton.rxbinding2.widget.RxPopupMenu
+import com.jakewharton.rxbinding2.widget.RxTextView
 import kotlinx.android.synthetic.main.activity_tasks.*
 
 class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.support.v4.app.FragmentManager.OnBackStackChangedListener {
@@ -30,10 +32,7 @@ class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.suppor
             popupMenu = PopupMenu(this,addTaskButton)
             popupMenu.menuInflater.inflate(R.menu.addtask_popup_menu,popupMenu.menu)
 
-
-            addTaskButton.show()
         }
-
 
         bindViewModel()
 
@@ -57,7 +56,7 @@ class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.suppor
         shouldDisplayHomeUp()
     }
 
-    fun shouldDisplayHomeUp() {
+    private fun shouldDisplayHomeUp() {
         //Enable Up button only  if there are entries in the back stack
         val canBack = supportFragmentManager.backStackEntryCount > 1
         supportActionBar!!.setDisplayHomeAsUpEnabled(canBack)
@@ -70,11 +69,6 @@ class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.suppor
     }
 
     private fun bindViewModel() {
-
-        RxView.clicks(addTaskButton)
-                .subscribe({
-                    popupMenu.show()
-                })
 
         RxPopupMenu.itemClicks(popupMenu)
                 .subscribe({ menuItem ->
@@ -98,6 +92,8 @@ class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.suppor
 
                     }
                 })
+
+
 
 
     }
