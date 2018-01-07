@@ -39,5 +39,12 @@
             android:onClick="@{() -> presenter.onShowData(temp)}"
             android:id="@+id/button" />
 
+        <Button
+            android:text="Start second activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> presenter.showList()}"
+            />
+
     </LinearLayout>
 </layout>
