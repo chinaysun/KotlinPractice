@@ -13,12 +13,15 @@ import com.jakewharton.rxbinding2.widget.RxAdapter
 import com.jakewharton.rxbinding2.widget.RxAdapterView
 import com.jakewharton.rxbinding2.widget.RxPopupMenu
 import com.jakewharton.rxbinding2.widget.RxTextView
+import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_tasks.*
 
 class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.support.v4.app.FragmentManager.OnBackStackChangedListener {
 
     private lateinit var viewModel: TasksActivityViewModel
     private lateinit var popupMenu: PopupMenu
+
+    private var currentFragment: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,8 @@ class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.suppor
 
             popupMenu = PopupMenu(this,addTaskButton)
             popupMenu.menuInflater.inflate(R.menu.addtask_popup_menu,popupMenu.menu)
+
+
 
         }
 
@@ -70,31 +75,64 @@ class TasksActivity : BaseActivity(), OnBackStackChangedListener, android.suppor
 
     private fun bindViewModel() {
 
-        RxPopupMenu.itemClicks(popupMenu)
-                .subscribe({ menuItem ->
-                    if (menuItem.itemId == R.id.generalTasks ) {
-                        supportFragmentManager
-                                .beginTransaction()
-                                .replace(R.id.tasks_activity,GeneralTasksFragment(),"GeneralTasks")
-                                .addToBackStack("GeneralTasksFragment")
-                                .commit()
 
-                        supportActionBar!!.title = "General Tasks"
-                    }
-                    else if (menuItem.itemId == R.id.createTask) {
-                        supportFragmentManager
-                                .beginTransaction()
-                                .replace(R.id.tasks_activity,CustomisedTasksFragment(),"CreateTasks")
-                                .addToBackStack("CreateTasksFragment")
-                                .commit()
+        viewModel.currentFragmentBehaviourSubject
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    when (it) {
+                        1 -> {
+                            supportFragmentManager
+                                    .beginTransaction()
+                                    .replace(R.id.tasks_activity,GeneralTasksFragment(),"GeneralTasks")
+                                    .addToBackStack("GeneralTasksFragment")
+                                    .commit()
 
-                        supportActionBar!!.title = "Create a task"
+                            supportActionBar!!.title = "General Tasks"
+                        }
+                        2 -> {
+                            supportFragmentManager
+                                    .beginTransaction()
+                                    .replace(R.id.tasks_activity,CustomisedTasksFragment(),"CreateTasks")
+                                    .addToBackStack("CreateTasksFragment")
+                                    .commit()
 
+                            supportActionBar!!.title = "Create a task"
+                        }
                     }
                 })
 
+        RxView.clicks(addTaskButton)
+                .subscribe({
+
+                    this.currentFragment += 1
+                    val fragmentIndex = this.currentFragment % 3
+                    viewModel.currentFragmentBehaviourSubject.onNext(fragmentIndex)
+
+                })
 
 
+//        RxPopupMenu.itemClicks(popupMenu)
+//                .subscribe({ menuItem ->
+//                    if (menuItem.itemId == R.id.generalTasks ) {
+//                        supportFragmentManager
+//                                .beginTransaction()
+//                                .replace(R.id.tasks_activity,GeneralTasksFragment(),"GeneralTasks")
+//                                .addToBackStack("GeneralTasksFragment")
+//                                .commit()
+//
+//                        supportActionBar!!.title = "General Tasks"
+//                    }
+//                    else if (menuItem.itemId == R.id.createTask) {
+//                        supportFragmentManager
+//                                .beginTransaction()
+//                                .replace(R.id.tasks_activity,CustomisedTasksFragment(),"CreateTasks")
+//                                .addToBackStack("CreateTasksFragment")
+//                                .commit()
+//
+//                        supportActionBar!!.title = "Create a task"
+//
+//                    }
+//                })
 
     }
 

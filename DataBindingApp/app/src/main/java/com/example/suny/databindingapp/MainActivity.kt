@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
     override fun showData(temperatureData: TemperatureData) {
         val celsius = temperatureData.getCelsius()
         Toast.makeText(this, celsius, Toast.LENGTH_SHORT).show()
-
     }
+
 
 }
